@@ -1,0 +1,15 @@
+{
+    "titulo": "Harry Potter",
+    "verba": "1000000",
+    "dtGravacaoInicio": "01/01/2019",
+    "dtGravacaoFim": "01/01/2019",
+    "ator": {
+        "id": "1"
+    },
+    "diretor": {
+        "id": "1"
+    },
+    "produtor": {
+        "id": "1"
+    }
+}

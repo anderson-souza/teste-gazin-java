@@ -1,13 +1,13 @@
 package com.andersonsouza.testegazin.domain.entity;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 import lombok.Data;
 
 @Entity
 @Data
-@PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue(value = "D")
 public class Documentario extends Filme {
 
 	private Long id;

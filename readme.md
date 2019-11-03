@@ -36,11 +36,12 @@ A aplicação criará todas as tabelas e relacionamentos necessários assim que 
 
 ## Execução
 
-Abra o prompt de comandos na raiz do projeto e execute o comando `mvn spring-boot:run`, este comando baixará todas as dependências necessárias e executará o projeto, que passará a ouvir requisições no endereço `http://localhost:8080/api`
+Existem 4 formas de executar a aplicação
 
-Caso o comando acima *apresente algum erro*, executar o comando  `mvn clean package`, que gerará um arquivo JAR na pasta `target`. Então, executar o comando  `java -jar target/Teste-Gazin-1.0.0-SNAPSHOT.jar`
-
-Caso não consiga executar o projeto através das opções acima, é possível utilizar o arquivo executável (JAR) obtido no seguinte [link](https://1drv.ms/u/s!AvFXvjjD4JriheNQJ6O6gjfA8OWH2w?e=MJ2dmb). Executar o comando `java -jar Teste-Gazin-1.0.0-SNAPSHOT.jar`no local em que o arquivo foi baixado
+- Abra o prompt de comandos na raiz do projeto e execute o comando `mvn spring-boot:run`, este comando baixará todas as dependências necessárias e executará o projeto, que passará a ouvir requisições no endereço `http://localhost:8080/api`
+- Abra o projeto em uma IDE, preferencialmente a [STS](https://spring.io/tools), aguarde o Eclipse Atualizar todos os pacotes e então execute o projeto.
+- Caso o comando acima *apresente algum erro*, executar o comando  `mvn clean package`, que gerará um arquivo JAR na pasta `target`. Então, executar o comando  `java -jar target/Teste-Gazin-1.0.0-SNAPSHOT.jar`
+- Caso não consiga executar o projeto através das opções acima, é possível utilizar o arquivo executável (JAR) obtido no seguinte [link](https://1drv.ms/u/s!AvFXvjjD4JriheNQJ6O6gjfA8OWH2w?e=MJ2dmb). Executar o comando `java -jar Teste-Gazin-1.0.0-SNAPSHOT.jar`no local em que o arquivo foi baixado
 
 
 

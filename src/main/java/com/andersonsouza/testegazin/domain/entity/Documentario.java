@@ -1,14 +1,13 @@
 package com.andersonsouza.testegazin.domain.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 import lombok.Data;
 
 @Entity
 @Data
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@PrimaryKeyJoinColumn(name = "id")
 public class Documentario extends Filme {
 
 	private Long id;

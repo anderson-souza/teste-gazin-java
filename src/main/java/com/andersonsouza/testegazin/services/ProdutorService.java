@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.andersonsouza.testegazin.domain.entity.Produtor;
 import com.andersonsouza.testegazin.repository.ProdutorRepository;
+import com.andersonsouza.testegazin.services.exception.ProdutorNaoEncontradoException;
 
 @Service
 public class ProdutorService {
@@ -25,14 +26,20 @@ public class ProdutorService {
 
 	public void atualizar(long id, Produtor produtor) {
 		produtor.setId(id);
-		if (produtorRepository.findById(id).isPresent()) {
-			produtorRepository.save(produtor);
-		}
+		verificaExistencia(id);
+		produtorRepository.save(produtor);
+
 	}
 
 	public void deletar(long id) {
-		if (produtorRepository.findById(id).isPresent()) {
-			produtorRepository.deleteById(id);
+		verificaExistencia(id);
+		produtorRepository.deleteById(id);
+
+	}
+
+	public void verificaExistencia(Long id) {
+		if (produtorRepository.findById(id).isEmpty()) {
+			throw new ProdutorNaoEncontradoException();
 		}
 	}
 

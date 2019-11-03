@@ -23,8 +23,8 @@ public class Diretor {
 	private String endereco;
 
 	private String telefone;
-	@Email(message = "Informar e-mail válido")
 
+	@Email(message = "Informar e-mail válido")
 	private String email;
 
 }

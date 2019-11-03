@@ -16,12 +16,8 @@ public class AtuacaoService {
 	@Autowired
 	AtuacaoRepository atuacaoRepository;
 
-	private final AtorService atorService;
-
 	@Autowired
-	public AtuacaoService(AtorService atorService) {
-		this.atorService = atorService;
-	}
+	AtorService atorService;
 
 	public List<Atuacao> listar() {
 		return (List<Atuacao>) atuacaoRepository.findAll();

@@ -2,7 +2,6 @@ package com.andersonsouza.testegazin.domain.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -14,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
@@ -53,8 +51,5 @@ public class Filme {
 	@NotNull(message = "Produtor é obrigatório")
 	@ManyToOne
 	private Produtor produtor;
-
-	@OneToMany
-	private List<Atuacao> atuacao;
 
 }

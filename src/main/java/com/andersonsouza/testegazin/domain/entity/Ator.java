@@ -7,10 +7,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 @Entity
 @Data
+@ApiModel(description = "Classe que representa um Ator na aplicação")
 public class Ator {
 
 	@Id

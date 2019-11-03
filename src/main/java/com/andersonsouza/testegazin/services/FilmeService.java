@@ -16,19 +16,14 @@ public class FilmeService {
 	@Autowired
 	FilmeRepository filmeRepository;
 
-	private final DiretorService diretorService;
-	private final ProdutorService produtorService;
-	private final AtuacaoService atuacaoService;
-	private final AtorService atorService;
-
 	@Autowired
-	public FilmeService(DiretorService diretorService, ProdutorService produtorService, AtuacaoService atuacaoService,
-			AtorService atorService) {
-		this.diretorService = diretorService;
-		this.produtorService = produtorService;
-		this.atuacaoService = atuacaoService;
-		this.atorService = atorService;
-	}
+	DiretorService diretorService;
+	@Autowired
+	ProdutorService produtorService;
+	@Autowired
+	AtuacaoService atuacaoService;
+	@Autowired
+	AtorService atorService;
 
 	public List<Filme> listar() {
 		return (List<Filme>) filmeRepository.findAll();
@@ -48,7 +43,6 @@ public class FilmeService {
 
 		diretorService.buscar(filme.getDiretor().getId());
 		produtorService.buscar(filme.getProdutor().getId());
-		filme.getAtuacao().forEach(a -> atuacaoService.buscar(a.getId()));
 
 		if (filme.getAtor() != null) {
 			atorService.buscar(filme.getAtor().getId());

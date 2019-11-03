@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +22,13 @@ public class Atuacao {
 	private String papel;
 
 	@ManyToOne
+	@JoinColumn(name = "ator_id")
 	@NotNull(message = "Ator é obrigatório")
 	private Ator ator;
+
+	@ManyToOne
+	@JoinColumn(name = "filme_id")
+	@NotNull(message = "Filme é obrigatório")
+	private Filme filme;
 
 }

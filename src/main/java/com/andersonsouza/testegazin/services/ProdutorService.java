@@ -23,4 +23,17 @@ public class ProdutorService {
 		produtorRepository.save(produtor);
 	}
 
+	public void atualizar(long id, Produtor produtor) {
+		produtor.setId(id);
+		if (produtorRepository.findById(id).isPresent()) {
+			produtorRepository.save(produtor);
+		}
+	}
+
+	public void deletar(long id) {
+		if (produtorRepository.findById(id).isPresent()) {
+			produtorRepository.deleteById(id);
+		}
+	}
+
 }

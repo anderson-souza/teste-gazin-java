@@ -55,7 +55,6 @@ public class Filme {
 	private Produtor produtor;
 
 	@OneToMany
-	@NotNull(message = "Atuação é obrigatório")
 	private List<Atuacao> atuacao;
 
 }

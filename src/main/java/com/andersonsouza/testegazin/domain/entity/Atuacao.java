@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -16,9 +17,11 @@ public class Atuacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull(message = "Papel é obrigatório")
 	private String papel;
 
 	@ManyToOne
+	@NotNull(message = "Ator é obrigatório")
 	private Ator ator;
 
 }

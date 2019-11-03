@@ -4,11 +4,9 @@ Teste técnico para a vaga de Desenvolvedor na Gazin
 
 Projeto desenvolvido em Java 1.8 utilizando o framework Spring Boot 2.2.0 para criação das APIs e rotas da aplicação.
 
-[TOC]
+
 
 ## Requisitos
-
-------
 
 - Java 1.8
 - MySql 8
@@ -22,9 +20,9 @@ Clone o repositório utilizando o comando: `git clone https://github.com/anderso
 
 Crie o banco no MySQL através do comando  `create database teste-gazin` ou através de qualquer outra ferramenta GUI para gerenciamento, como o MySql Workbench. 
 
-Para conectar-se no banco de dados, a aplicação está utilizando os dados padrões de conexão com o MySql
+Para conectar-se no banco de dados, a aplicação está utilizando os seguintes dados
 
-> `url=jdbc:mysql://localhost:3306`
+> `url=jdbc:mysql://localhost:3306/teste-gazin`
 >
 > `username=root`
 >
@@ -32,7 +30,7 @@ Para conectar-se no banco de dados, a aplicação está utilizando os dados padr
 
 Caso tenha modificado estes dados na instalação de seu MySql, edite o arquivo `application.properties` localizado em `teste-gazin-api\src\main\resources` para refletir os dados que utiliza em sua máquina.
 
-A aplicação criará todas as tabelas e relacionamentos necessários assim que o projeto for iniciado, mas caso seja necessário rodar manualmente os códigos SQL, verificar o arquivo `script-geracao-bd-gazin.sql`
+A aplicação criará todas as tabelas e relacionamentos necessários assim que o projeto for iniciado, mas caso seja preciso rodar manualmente os códigos SQL, verificar o arquivo `script-geracao-bd-gazin.sql`
 
 
 
@@ -52,6 +50,8 @@ A documentação das APIs pode ser visualizada no seguinte [link](https://app.sw
 
 ## Testes
 
+Qualquer software que seja capaz de testar APIs pode fazer a execução do projeto, abaixo sugiro dois deles.
+
 ### Postman
 
 Para testar a aplicação de forma fácil, é recomendado a utilização do software [Postman](https://www.getpostman.com/), uma ótima ferramenta para testes em APIs. Na raiz do projeto existe o arquivo `Teste Gazin.postman_collection.json` que contém uma coleção com as funções já criadas para testar a API no Postman. 
@@ -70,11 +70,11 @@ Para Persistência e Seleção de um filme, seguir os passos
 
 ### cUrl
 
-Também é possível executar as operações utilizando o cUrl
+Também é possível executar as operações utilizando o [cUrl](https://curl.haxx.se/)
+
+Na pasta `Testar Aplicação` criei um simples arquivo .bat que executa os comandos via cUrl para criação de um Filme, em seguida, executa o comando GET para visualização do Filme criado. A resposta será gerada no terminal.
 
 
 
-*nota sobre os testes
-
-Devido ao tempo para realização do teste, preferi não adicionar a parte de Segurança no Spring Boot, para habilitar a execução de CORS e então visualizar as requisições no navegador, por este motivo disponibilizo as formas acima para execução do projeto.
+***Nota sobre os testes** devido ao tempo para realização do teste, preferi não adicionar a parte de Segurança no Spring Boot, para habilitar a execução de CORS e então visualizar as requisições no navegador, por este motivo disponibilizo as formas acima para execução do projeto.*
 

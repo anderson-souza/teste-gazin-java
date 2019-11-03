@@ -18,4 +18,9 @@ public class ProdutorService {
 		return (List<Produtor>) produtorRepository.findAll();
 	}
 
+	public void salvar(Produtor produtor) {
+		produtor.setId(null);
+		produtorRepository.save(produtor);
+	}
+
 }

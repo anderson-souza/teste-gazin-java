@@ -16,7 +16,7 @@ public class AtuacaoNaoEncontradoException extends RuntimeException {
 	}
 
 	public AtuacaoNaoEncontradoException() {
-		super("Produtor não pôde ser encontrado");
+		super("Atuacão não pôde ser encontrado");
 	}
 
 }

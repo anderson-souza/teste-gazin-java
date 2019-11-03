@@ -1,6 +1,7 @@
 package com.andersonsouza.testegazin.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,26 +25,33 @@ public class AtuacaoService {
 
 	public void salvar(Atuacao atuacao) {
 		atuacao.setId(null);
-		atorService.verificaExistencia(atuacao.getAtor().getId());
 		atuacaoRepository.save(atuacao);
 	}
 
 	public void atualizar(long id, Atuacao atuacao) {
 		atuacao.setId(id);
-		verificaExistencia(id);
+		verificarExistencia(id);
 		atorService.verificaExistencia(atuacao.getAtor().getId());
 		atuacaoRepository.save(atuacao);
 	}
 
 	public void deletar(long id) {
-		verificaExistencia(id);
+		verificarExistencia(id);
 		atuacaoRepository.deleteById(id);
+
 	}
 
-	public void verificaExistencia(Long id) {
-		if (atuacaoRepository.findById(id).isPresent()) {
+	private void verificarExistencia(Long id) {
+		buscar(id);
+	}
+
+	public Atuacao buscar(Long id) {
+		Optional<Atuacao> atuacao = atuacaoRepository.findById(id);
+
+		if (atuacao.isEmpty()) {
 			throw new AtuacaoNaoEncontradoException();
 		}
+		return atuacao.get();
 	}
 
 }

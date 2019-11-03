@@ -16,7 +16,7 @@ public class DiretorNaoEncontradoException extends RuntimeException {
 	}
 
 	public DiretorNaoEncontradoException() {
-		super("Produtor não pôde ser encontrado");
+		super("Diretor não pôde ser encontrado");
 	}
 
 }

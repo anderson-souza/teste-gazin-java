@@ -16,7 +16,7 @@ public class AtorNaoEncontradoException extends RuntimeException {
 	}
 
 	public AtorNaoEncontradoException() {
-		super("Produtor não pôde ser encontrado");
+		super("Ator não pôde ser encontrado");
 	}
 
 }

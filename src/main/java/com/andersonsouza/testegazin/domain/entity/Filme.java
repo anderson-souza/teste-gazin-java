@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Entity
@@ -35,7 +37,10 @@ public class Filme {
 	private String titulo;
 
 	private BigDecimal verba;
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dtGravacaoInicio;
+
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dtGravacaoFim;
 
 	@OneToOne

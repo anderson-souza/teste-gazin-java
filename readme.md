@@ -10,7 +10,7 @@ Projeto desenvolvido em Java 1.8 utilizando o framework Spring Boot 2.2.0 para c
 
 - Java 1.8
 - MySql 8
-- Maven
+- Apache Maven 3.6.1
 
 ## Instalação e configuração
 
@@ -18,7 +18,7 @@ Clone o repositório utilizando o comando: `git clone https://github.com/anderso
 
 ### Configuração do banco de dados
 
-Crie o banco no MySQL através do comando  `create database teste-gazin` ou através de qualquer outra ferramenta GUI para gerenciamento, como o MySql Workbench. 
+Crie o banco no MySQL através do comando  create database `teste-gazin` ou através de qualquer outra ferramenta GUI para gerenciamento, como o MySql Workbench. 
 
 Para conectar-se no banco de dados, a aplicação está utilizando os seguintes dados
 
@@ -30,7 +30,7 @@ Para conectar-se no banco de dados, a aplicação está utilizando os seguintes 
 
 Caso tenha modificado estes dados na instalação de seu MySql, edite o arquivo `application.properties` localizado em `teste-gazin-api\src\main\resources` para refletir os dados que utiliza em sua máquina.
 
-A aplicação criará todas as tabelas e relacionamentos necessários assim que o projeto for iniciado, mas caso seja preciso rodar manualmente os códigos SQL, verificar o arquivo `script-geracao-bd-gazin.sql`
+A aplicação criará todas as tabelas e relacionamentos necessários assim que o projeto for iniciado, mas caso seja precise rodar manualmente os códigos SQL, verificar o arquivo `script-geracao-bd-gazin.sql`
 
 
 
@@ -39,6 +39,8 @@ A aplicação criará todas as tabelas e relacionamentos necessários assim que 
 Abra o prompt de comandos na raiz do projeto e execute o comando `mvn spring-boot:run`, este comando baixará todas as dependências necessárias e executará o projeto, que passará a ouvir requisições no endereço `http://localhost:8080/api`
 
 Caso o comando acima *apresente algum erro*, executar o comando  `mvn clean package`, que gerará um arquivo JAR na pasta `target`. Então, executar o comando  `java -jar target/Teste-Gazin-1.0.0-SNAPSHOT.jar`
+
+Caso não consiga executar o projeto através das opções acima, é possível utilizar o arquivo executável (JAR) obtido no seguinte [link](https://1drv.ms/u/s!AvFXvjjD4JriheNQJ6O6gjfA8OWH2w?e=MJ2dmb). Executar o comando `java -jar Teste-Gazin-1.0.0-SNAPSHOT.jar`no local em que o arquivo foi baixado
 
 
 

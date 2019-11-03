@@ -16,22 +16,36 @@ public class AtuacaoService {
 	@Autowired
 	AtuacaoRepository atuacaoRepository;
 
+	private final AtorService atorService;
+
 	@Autowired
-	AtorService atorService;
+	public AtuacaoService(AtorService atorService) {
+		this.atorService = atorService;
+	}
 
 	public List<Atuacao> listar() {
 		return (List<Atuacao>) atuacaoRepository.findAll();
 	}
 
+	public Atuacao buscar(Long id) {
+		Optional<Atuacao> atuacao = atuacaoRepository.findById(id);
+
+		if (atuacao.isEmpty()) {
+			throw new AtuacaoNaoEncontradoException();
+		}
+		return atuacao.get();
+	}
+
 	public void salvar(Atuacao atuacao) {
 		atuacao.setId(null);
+		atorService.buscar(atuacao.getAtor().getId());
 		atuacaoRepository.save(atuacao);
 	}
 
 	public void atualizar(long id, Atuacao atuacao) {
 		atuacao.setId(id);
 		verificarExistencia(id);
-		atorService.verificaExistencia(atuacao.getAtor().getId());
+		atorService.buscar(atuacao.getAtor().getId());
 		atuacaoRepository.save(atuacao);
 	}
 
@@ -43,15 +57,6 @@ public class AtuacaoService {
 
 	private void verificarExistencia(Long id) {
 		buscar(id);
-	}
-
-	public Atuacao buscar(Long id) {
-		Optional<Atuacao> atuacao = atuacaoRepository.findById(id);
-
-		if (atuacao.isEmpty()) {
-			throw new AtuacaoNaoEncontradoException();
-		}
-		return atuacao.get();
 	}
 
 }

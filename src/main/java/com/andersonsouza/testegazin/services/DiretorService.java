@@ -1,6 +1,7 @@
 package com.andersonsouza.testegazin.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,15 @@ public class DiretorService {
 
 	public List<Diretor> listar() {
 		return (List<Diretor>) diretorRepository.findAll();
+	}
+
+	public Diretor buscar(Long id) {
+		Optional<Diretor> diretor = diretorRepository.findById(id);
+
+		if (diretor.isEmpty()) {
+			throw new DiretorNaoEncontradoException();
+		}
+		return diretor.get();
 	}
 
 	public void salvar(Diretor diretor) {
@@ -37,9 +47,7 @@ public class DiretorService {
 	}
 
 	public void verificaExistencia(Long id) {
-		if (diretorRepository.findById(id).isEmpty()) {
-			throw new DiretorNaoEncontradoException();
-		}
+		buscar(id);
 	}
 
 }

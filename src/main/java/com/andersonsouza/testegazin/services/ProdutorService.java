@@ -1,6 +1,7 @@
 package com.andersonsouza.testegazin.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,15 @@ public class ProdutorService {
 
 	public List<Produtor> listar() {
 		return (List<Produtor>) produtorRepository.findAll();
+	}
+
+	public Produtor buscar(Long id) {
+		Optional<Produtor> produtor = produtorRepository.findById(id);
+
+		if (produtor.isEmpty()) {
+			throw new ProdutorNaoEncontradoException();
+		}
+		return produtor.get();
 	}
 
 	public void salvar(Produtor produtor) {
@@ -37,10 +47,8 @@ public class ProdutorService {
 
 	}
 
-	public void verificaExistencia(Long id) {
-		if (produtorRepository.findById(id).isEmpty()) {
-			throw new ProdutorNaoEncontradoException();
-		}
+	private void verificaExistencia(Long id) {
+		buscar(id);
 	}
 
 }
